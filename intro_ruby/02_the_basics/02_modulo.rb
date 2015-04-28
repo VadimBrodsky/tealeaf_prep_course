@@ -1,0 +1,5 @@
+puts "Four digit number: 1234"
+puts "Thousand number:   #{1234 / 1000}"
+puts "Hundreds number:   #{1234 % 1000 / 100}"
+puts "Tens number:       #{1234 % 100 / 10}"
+puts "Ones number:       #{1234 % 10}"
