@@ -1,23 +1,24 @@
 words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live', 'fowl', 'veil', 'wolf', 'diet', 'vile', 'edit', 'tide', 'flow', 'neon']
 
-def is_anagram?(word1, word2)
-  if word1.split(//).sort.join == word2.split(//).sort.join
-    true
+
+def sort_letters(word)
+  word.split('').sort.join
+end
+
+def is_anagram(word1, word2)
+  sort_letters(word1) == sort_letters(word2) ? true : false
+end
+
+anagrams = {}
+
+words.each do |word|
+  key = sort_letters(word)
+
+  if anagrams.has_key?(key)
+    anagrams[key] << word
   else
-    false
+    anagrams[key] = [word]
   end
 end
 
-
-for word in words do
-  
-  anagram = words.select do |other_word|
-    if is_anagram?(word, other_word)
-      other_word
-    end
-  end
-
-  p anagram
-end
-
-
+anagrams.each { |k,v| p v }
