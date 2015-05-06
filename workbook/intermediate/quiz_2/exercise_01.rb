@@ -6,6 +6,7 @@ munsters = {
 }
 
 total_age = 0
+
 munsters.each_value do |munster|
   total_age = ( total_age + munster["age"] ) if munster["gender"] == "male"
 end
