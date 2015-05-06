@@ -17,9 +17,10 @@ AGE_OF_MAJORITY = 18
 AGE_OF_RETIREMENT = 65
 
 def determine_demographic(age)
-  if age < AGE_OF_MAJORITY
+  case age
+  when 0...AGE_OF_MAJORITY
     "kid"
-  elsif (AGE_OF_MAJORITY..AGE_OF_RETIREMENT).include?(age)
+  when AGE_OF_MAJORITY..AGE_OF_RETIREMENT
     "adult"
   else
     "senior"
