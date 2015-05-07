@@ -6,11 +6,21 @@ characters = [
 ]
 
 class String
-  def pretty_short_version(length=32)
-    result = self.dup
-    if self.length > length
-      result = result[0, length - 1] + "…"
+  def pretty_short_version(max_length=32)
+    long_string = self.dup
+    short_string = ""
+    # if self.length > length
+    #   result = result[0, length - 1] + "…"
+    # end
+    string_lenght = 0
+    long_string = long_string.split
+
+    long_string.each do |word|
+      string_lenght += word.length
+      if string_lenght >
     end
+
+
     result
   end
 end
