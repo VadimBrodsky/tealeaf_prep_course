@@ -1,13 +1,15 @@
-def less_tricky_method(a_string_param, an_array_param)
-  a_string_param += "rutabega"
-  an_array_param += ["rutabega"]
-
-  return a_string_param, an_array_param
+def tricky_method!(param)
+  if param.class == String
+    param += "rutabega"
+  elsif param.class == Array
+    param << "rutabega"
+  else
+    param
+  end
 end
 
-my_string = "pumpkins"
-my_array = ["pumpkins"]
-my_string, my_array = less_tricky_method(my_string, my_array)
+my_string = tricky_method!("pumpkins")
+my_array = tricky_method!(["pumpkins"])
 
 puts "My string looks like this now: #{my_string}"
 puts "My array looks like this now: #{my_array}"
