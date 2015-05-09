@@ -1,12 +1,13 @@
 require 'securerandom'
 
 def uuid
+	format_sections = [8, 4, 4, 4, 12]
 	full_uuid = []
-	full_uuid << SecureRandom.hex(4)
-	full_uuid << SecureRandom.hex(2)
-	full_uuid << SecureRandom.hex(2)
-	full_uuid << SecureRandom.hex(2)
-	full_uuid << SecureRandom.hex(6)
+
+	format_sections.each do |length|
+		full_uuid << SecureRandom.hex(length / 2)
+	end
+
 	full_uuid.join('-')
 end
 
