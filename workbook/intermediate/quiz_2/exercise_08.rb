@@ -7,27 +7,36 @@ characters = [
 
 class String
   def pretty_short_version(max_length=32)
-    long_string = self.dup
-    short_string = ""
-    # if self.length > length
-    #   result = result[0, length - 1] + "…"
-    # end
-    string_lenght = 0
-    long_string = long_string.split
+    long_string = self.dup.split
+    short_string = []
+
+    # - split input into word array
+    # - initalize an empty new string
+    # - add words one at a time until get over the max length
+    # - if went over max length remove word
+    # - add elipsis
+
 
     long_string.each do |word|
-      string_lenght += word.length
-      if string_lenght >
+      if short_string.join(" ").length + 1 < max_length
+        short_string << word
+      end
     end
 
+    if short_string.count == 1
+      return short_string.join.slice(0, max_length) + "…"
+    end
 
-    result
+    if short_string.join(" ").length + 1 > max_length
+      short_string.pop
+    end
+
+    short_string.join(" ") + "…"
   end
 end
 
-puts "Hello".shorten
-puts "Police Commisioner of Gotham City and loyal friend of Batman -- frequently communicates secretly with Batman via signals or a special red BatPhone".shorten
+puts "thiisaverylognwordthatwouldneverendorfitintothelimit".pretty_short_version
 
 characters.each do |character|
-  puts character.values.map { |value| value.shorten }.join(", ")
+  puts character.values.map { |value| value.pretty_short_version }.join(", ")
 end
